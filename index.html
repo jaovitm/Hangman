@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo da Forca</title>
+</head>
+
+<body>
+    <header>
+        <div class="tracking-in-expand">
+            <img src="./joystick.svg" alt="Joystick" class="joystick">
+            <h1>Jogo Da Forca</h1>
+            <h5>Alura - Oracle one</h5>
+        </div>
+    </header>
+    <main>
+        <div class="gameMenu">
+            <button onclick="start()">Começar Jogo</button>
+            <button>Adicionar nova Palavra</button>
+        </div>
+        <div id="unique" class="hide">
+            <canvas id="hangman" width="360" height="500"></canvas>
+            <div class="wrong">
+                <h2>Letras Erradas:</h2>
+                <div class="wrongLetters"></div>
+            </div>
+            <div class="right">
+                <div class="lines"></div>
+            </div>
+        </div>
+    </main>
+    <div class="modal" id="modalLost">
+        <div class="modal-content">
+            <div id="his">
+                <h1>Que pena, você perdeu</h1>
+            </div>
+            <button onclick="reload()">Reiniciar</button>
+        </div>
+    </div>
+    <div class="modal" id="modalWin">
+        <div class="modal-content">
+            <div id="his">
+                <h1>Parabens voce ganhou</h1>
+            </div>
+            <button onclick="reload()">Reiniciar</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
