@@ -12,7 +12,12 @@ var div = document.querySelector('#unique')
 
 let lines = document.querySelector('.lines')
 
+let add = document.querySelector('#adicionar')
+let form = document.querySelector('form')
+
 let letrasErradas = document.querySelector('.wrongLetters')
+ 
+let clue = document.querySelector('.hint')
 
 var die = 0
 
@@ -202,6 +207,7 @@ function start() {
     secret = randomWord();
     secretword = secret.word.toUpperCase()
     hint = secret.hint
+    clue.innerHTML = `Dica: ${hint}`
     hangman()
 }
 
@@ -299,7 +305,7 @@ document.addEventListener('keydown', (evento) => {
                 wrongLetters.push(letter)
                 hangman(stickman[die])
                 die++
-                if (die == 8 || die == secretword.length) {
+                if (die == 8) {
                     gameLose()
                 }
             }
@@ -361,3 +367,18 @@ function gameWon() {
 function reload(){
     location.reload();
 }
+
+function adc(){
+    var modal = document.getElementById("modalAdd");
+    modal.classList.toggle("show-modal");
+}
+
+add.addEventListener("click", function(event){
+    event.preventDefault();
+    var modal = document.getElementById("modalAdd");
+    var word = document.getElementById("word").value;
+    var hint = document.getElementById("hint").value;
+
+    words.push({word, hint})
+    form.reset()
+})
