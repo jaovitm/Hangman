@@ -322,7 +322,7 @@ function isvalid(codigo) {
 }
 
 function repeated() {
-    alert("Não")
+    alert("Não repita letras!")
 }
 
 function refreshgame() {
