@@ -16,8 +16,14 @@ let add = document.querySelector('#adicionar')
 let form = document.querySelector('form')
 
 let letrasErradas = document.querySelector('.wrongLetters')
- 
+
 let clue = document.querySelector('.hint')
+
+let teclado = document.querySelector('#yes')
+
+let keyboard = document.querySelectorAll('.Keyboard')
+
+let footer = document.querySelector('.footermenu')
 
 var die = 0
 
@@ -195,15 +201,16 @@ const words = [
 
 var word = ""
 
-
-
 function start() {
-
     el.parentNode.removeChild(el);
-    header.style.fontSize = '2vw';
-    joystick.style.width = '3vw';
+    header.classList.add('headeringame');
+    joystick.classList.add('joystickingame')
     div.classList.add("game");
     div.classList.remove("hide");
+    teclado.classList.add("teclado");
+    teclado.classList.remove("hide");
+    footer.classList.add("footergame");
+    footer.classList.remove("footermenu");
     secret = randomWord();
     secretword = secret.word.toUpperCase()
     hint = secret.hint
@@ -292,37 +299,15 @@ function randomWord() {
 }
 
 
-document.addEventListener('keydown', (evento) => {
-    var codigo = evento.keyCode;
-    var letter = evento.key.toUpperCase()
-    if (isvalid(codigo)) {
-        if (wrongLetters.includes(letter)) {
-            repeated()
-        } else {
-            if (secretword.includes(letter)) {
-                correctletters.push(letter)
-            } else {
-                wrongLetters.push(letter)
-                hangman(stickman[die])
-                die++
-                if (die == 8) {
-                    gameLose()
-                }
-            }
-        }
-        if(lines.textContent == secretword){
-            gameWon();
-        }
-        refreshgame()
-    }
-})
 
 function isvalid(codigo) {
     return codigo >= 65 && codigo <= 90;
 }
 
+
+
 function repeated() {
-    alert("Não")
+    alert("Não repita letras!")
 }
 
 function refreshgame() {
@@ -364,21 +349,70 @@ function gameWon() {
 
 }
 
-function reload(){
+function reload() {
     location.reload();
 }
 
-function adc(){
+function adc() {
     var modal = document.getElementById("modalAdd");
     modal.classList.toggle("show-modal");
 }
 
-add.addEventListener("click", function(event){
+add.addEventListener("click", function (event) {
     event.preventDefault();
-    var modal = document.getElementById("modalAdd");
     var word = document.getElementById("word").value;
     var hint = document.getElementById("hint").value;
 
-    words.push({word, hint})
+    words.push({ word, hint })
     form.reset()
+})
+
+
+keyboard.forEach(key => {
+    key.addEventListener("click", function () {
+        key.disabled = true
+        var codigo = key.value;
+        console.log(codigo)
+            if (secretword.includes(codigo)) {
+                correctletters.push(codigo)
+            } else {
+                wrongLetters.push(codigo)
+                hangman(stickman[die])
+                die++
+                if (die == 8) {
+                    gameLose()
+                }
+            }
+        refreshgame()
+        if (lines.textContent == secretword) {
+            gameWon();
+        }
+        
+    }
+    )
+})
+
+document.addEventListener('keydown', (evento) => {
+    var codigo = evento.keyCode;
+    var letter = evento.key.toUpperCase()
+    if (isvalid(codigo)) {
+        if (wrongLetters.includes(letter)) {
+            repeated()
+        } else {
+            if (secretword.includes(letter)) {
+                correctletters.push(letter)
+            } else {
+                wrongLetters.push(letter)
+                hangman(stickman[die])
+                die++
+                if (die === 8) {
+                    gameLose()
+                }
+            }
+        }
+        if(lines.textContent == secretword){
+            gameWon();
+        }
+        refreshgame()
+    }
 })

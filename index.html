@@ -17,20 +17,20 @@
             <h5>Alura - Oracle one</h5>
         </div>
     </header>
+    <div class="gameMenu">
+        <button onclick="start()">Começar Jogo</button>
+        <button onclick="adc()">Adicionar nova Palavra</button>
+    </div>
     <main>
-        <div class="gameMenu">
-            <button onclick="start()">Começar Jogo</button>
-            <button onclick="adc()">Adicionar nova Palavra</button>
-        </div>
         <div id="unique" class="hide">
             <canvas id="hangman" width="360" height="500"></canvas>
             <div class="hint">
-                
+
             </div>
             <div class="wrong">
                 <h1>Erros:</h1>
                 <div class="wrongLetters">
-                    
+
                 </div>
             </div>
             <div class="right">
@@ -69,6 +69,43 @@
                 <button onclick="adc()">Fechar</button>
             </div>
         </div>
+    </div>
+    <div class="hide" id="yes">
+        <button class="Keyboard" value="A">A</button>
+        <button class="Keyboard" value="B">B</button>
+        <button class="Keyboard" value="C">C</button>
+        <button class="Keyboard" value="D">D</button>
+        <button class="Keyboard" value="E">E</button>
+        <button class="Keyboard" value="F">F</button>
+        <button class="Keyboard" value="G">G</button>
+        <button class="Keyboard" value="H">H</button>
+        <button class="Keyboard" value="I">I</button>
+        <button class="Keyboard" value="J">J</button>
+        <button class="Keyboard" value="K">K</button>
+        <button class="Keyboard" value="L">L</button>
+        <button class="Keyboard" value="M">M</button>
+        <button class="Keyboard" value="N">N</button>
+        <button class="Keyboard" value="O">O</button>
+        <button class="Keyboard" value="P">P</button>
+        <button class="Keyboard" value="Q">Q</button>
+        <button class="Keyboard" value="R">R</button>
+        <button class="Keyboard" value="S">S</button>
+        <button class="Keyboard" value="T">T</button>
+        <button class="Keyboard" value="U">U</button>
+        <button class="Keyboard" value="V">V</button>
+        <button class="Keyboard" value="W">W</button>
+        <button class="Keyboard" value="X">X</button>
+        <button class="Keyboard" value="Y">Y</button>
+        <button class="Keyboard" value="Z">Z</button>
+    </div>
+    <footer class="footermenu">
+        <h1 class="footertitle">João Vitor &copy; 2022</h1>
+        <div id="imgs">
+            <a href="https://github.com/jaovitm"><img src="./github.svg" alt="github"></a>
+            <a href="https://twitter.com/JaoVitM"><img src="./twitter.svg" alt="twitter"></a>
+            
+        </div>
+    </footer>
     <script src="./script.js"></script>
 </body>
 

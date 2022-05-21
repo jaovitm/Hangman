@@ -4,7 +4,6 @@
     vertical-align: baseline;
     list-style: none;
     border: 0;
-    overflow: hidden;
 }
 
 html {
@@ -13,9 +12,7 @@ html {
     --three: #E1F4F3;
     --four: #706C61
 }
-.hide{
-    display: none;
-}
+
 body {
     background-color: var(--one);
 }
@@ -24,16 +21,172 @@ header {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 1%;
-    font-size: 5vw;
+    margin: 0.5%;
+    font-size: 3vw;
 }
 
-.joystick {
-    width: 10vw;
+span {
+    margin: 10px;
+    font-size: 30px;
+}
+
+
+.headeringame {
+    font-size: 3vh;
 }
 
 .tracking-in-expand {
     animation: tracking-in-expand 1s cubic-bezier(.215, .61, .355, 1.000) both
+}
+
+.joystick {
+    width: 6vw;
+}
+
+.joystickingame {
+    width: 8vw;
+}
+
+#unique {
+    transform: scale(0.9);
+}
+
+.gameMenu {
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#hangman {
+    transform: scale(0.7);
+    float: left;
+}
+
+.hint {
+    font-size: 30px;
+    color: var(--three);
+    padding: 3%;
+}
+
+.wrong {
+    display: flex;
+    color: var(--three);
+    align-items: center;
+}
+
+.wrongLetters {
+    color: var(--three);
+    font-size: 25px;
+}
+
+.right {
+    width: 5vw;
+    height: 25vh;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: var(--two);
+}
+
+input {
+    font-size: x-large;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    margin: 5px;
+    padding: 3px;
+}
+
+.teclado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.Keyboard {
+    width: max-content;
+}
+
+.footermenu {
+    display: grid;
+    grid-template-columns: 45vw auto;
+    align-items: center;
+    background-color: var(--three);
+    color: #333333;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+ .footergame{
+    display: grid;
+    grid-template-columns: 45vw auto;
+    align-items: center;
+    background-color: var(--three);
+    color: #333333;
+    width: 100%;
+ }
+.footertitle{
+    font-size: medium;
+    margin: 35px;
+}
+
+#imgs img{
+    height: 35px;
+    margin: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(20, 30, 39, 0.5);
+    transform: scale(1.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.modal-content {
+    justify-content: center;
+    background-color: whitesmoke;
+    padding: 30px;
+    width: 50vw;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    float: right;
+    text-align: center;
+    width: 1.3vw;
+    cursor: pointer;
+    background-color: lightgray;
+    line-height: 24px;
+}
+
+.close-button:hover {
+    background-color: var(--three);
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
 }
 
 button {
@@ -54,110 +207,88 @@ button {
     outline: none;
 }
 
-button:hover {
+button:hover:enabled {
     color: var(--one);
     transform: translateY(-7px);
 }
 
-button:active {
-    transform: translateY(-1px);
+button:active:enabled {
+    transform: translateY(8px);
+}
+button:disabled{
+    cursor: not-allowed;
+    background-color: brown;
 }
 
-.gameMenu {
-    height: 35vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-}
-#hangman{
-    float: left; 
-}
+/*Resposividade*/
+@media screen and (max-width: 600px) {
+    .right {
+        width: 100vw;
+        height: 2vh;
+        margin-top: 10vw;
+        margin-bottom: 4vw;
+        font-size: xx-large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--two);
+    }
 
-span{
-    margin: 10px;
-    font-size: 30px;
-}
+    .joystick {
+        width: 60vw;
+    }
 
-main{
-    margin: 40px;
-}
-.hint{
-    font-size: 30px;
-color: var(--three);
-padding: 3%;
-}
-.modal{
-    position: fixed;
-    padding: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgba(20, 30, 39, 0.5);
-    transform: scale(1.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: visibility 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out ; 
-}
+    .joystickingame {
+        width: 10vw;
+    }
 
-.modal-content{
-    justify-content: center;
-    background-color: whitesmoke;
-    padding: 30px;
-    width: 50vw;
-    border-radius: 0.5rem;
-}
+    header {
+        font-size: 2rem;
+    }
 
-.close-button{  
-    float: right;
-    text-align: center;
-    width: 1.3vw;
-    cursor: pointer;
-    background-color: lightgray;
-    line-height: 24px;
-}
+    .headeringame {
+        font-size: 1vh;
+    }
 
-.close-button:hover{
-    background-color: var(--three);
-}
+    button {
+        display: inline;
+        width: max-content;
+        margin: 1%;
+        padding: 1.5vw 3vw;
+        font-size: 2vh;
+        text-transform: uppercase;
+        letter-spacing: 0.2vw;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 2rem;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
 
-.show-modal{
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-}
+    button:hover {
+        color: var(--one);
+        transform: translateY(-7px);
+    }
 
-.wrong{
-    display: flex;
-    color: var(--three);
-    align-items: center;
-}
-.wrongLetters{
-    color: var(--three);
-    font-size: 25px;
-}
-.right{
-    height: 30vh;
-    font-size: xx-large;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3%;
-    color: var(--two);
+    button:active {
+        transform: translateY(-1px);
+    }
+
+    #hangman {
+        margin: 0;
+    }
+
+    .hint {
+        padding: 0;
+    }
 }
 
-input{
-    font-size: x-large;
-    border: 2px solid black;
-    border-radius: 0.5rem;
-    margin: 5px;
-    padding: 3px;
-}
+
 /* ----------------------------------------------
  * Generated by Animista on 2022-5-16 7:28:4
  * Licensed under FreeBSD License.
@@ -165,7 +296,7 @@ input{
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
-@keyframes tracking-in-expand {
+ @keyframes tracking-in-expand {
     0% {
         letter-spacing: -.5em;
         opacity: 0
