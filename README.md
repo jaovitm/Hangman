@@ -10,7 +10,7 @@ Projeto desenvolvido durante o curso da Alura em parceria com a Oracle, um jogo 
 
 ## Demonstração
 
-![](Hangman/ezgif-3-54e64ae630.gif)
+![](/ezgif-3-54e64ae630.gif)
 
 ## Stack utilizada
 
