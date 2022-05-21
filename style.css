@@ -288,7 +288,7 @@ button:disabled{
     }
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 650px) {
     .footermenu{
         position: relative;
     }
