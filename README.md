@@ -10,7 +10,7 @@ Projeto desenvolvido durante o curso da Alura em parceria com a Oracle, um jogo 
 
 ## Demonstração
 
-![](/Hangman/20220521113719.mp4)
+![](/Hangman/demo.gif)
 
 ## Stack utilizada
 
